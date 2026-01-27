@@ -4,12 +4,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Sherly2591/jenkins-ci-cd-demo.git'
+                git branch: 'main',
+                    url: 'https://github.com/Sherly2591/jenkins-ci-cd-demo.git'
             }
         }
 
         stage('Build Docker Image') {
-            steps {
+            steps {   
                 sh 'docker build -t jenkins-demo:latest .'
             }
         }
